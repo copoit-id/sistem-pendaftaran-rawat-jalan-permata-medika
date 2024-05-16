@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .content {
-    @apply pt-[80px] px-2
+    @apply pt-[80px] px-2 w-full h-[100dvh] bg-slate-100
 }

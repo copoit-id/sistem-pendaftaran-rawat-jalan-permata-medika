@@ -1,7 +1,7 @@
 <nav class="bg-white dark:bg-gray-900 z-[10] w-full border">
     <div class="flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ $title }}</span>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-black">{{ $title }}</span>
         </a>
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button type="button"
