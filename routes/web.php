@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/manajemen-dokter', [ManajemenDokterController::class, 'index']);
+Route::get('/input-dokter', [ManajemenDokterController::class, 'indexInput']);
