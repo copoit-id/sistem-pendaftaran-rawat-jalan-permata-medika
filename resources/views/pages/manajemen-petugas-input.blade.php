@@ -16,7 +16,7 @@
                                 <path
                                     d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
                             </svg>
-                            Manajemen Dokter
+                            Manajemen Petugas
                         </a>
                     </li>
                     <li aria-current="page">
@@ -27,14 +27,14 @@
                                     d="m1 9 4-4-4-4" />
                             </svg>
                             <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Input
-                                Dokter</span>
+                                Nama Petugas</span>
                         </div>
                     </li>
                 </ol>
             </nav>
         </div>
         <div class="bg-white w-full mt-4 shadow-sm rounded-md px-4 py-8">
-            <p class="text-center font-bold text-[20px] mb-4">Form Input Dokter</p>
+            <p class="text-center font-bold text-[20px] mb-4">Form Input Karyawan</p>
             <div>
                 <form class="mx-auto">
                     <label for="default-search"
@@ -45,57 +45,33 @@
                             placeholder="Masukan nomer dokter" required />
                         <select id="countries_disabled"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Pilih Poliklinik</option>
-                            <option value="US">Poli Mata</option>
-                            <option value="CA">Poli Telinga</option>
-                            <option value="FR">Poli Kulit</option>
-                            <option value="DE">Poli Gigi</option>
-                        </select>
-                        <select id="countries_disabled"
-                            class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Jenis Kelamin</option>
                             <option value="US">Laki-laki</option>
                             <option value="CA">Perempuan</option>
                         </select>
+                        <input type="search" id="default-search"
+                            class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Masukan nomer telepon" required />
                     </div>
-                    <div class="py-4 flex">
-                        <div class="bg-gray-100 w-2/3 py-4 px-4 rounded-md border border-gray-300 ">
-                            <p class="text-center font-semibold text-gray-600 mb-3">Jadwal Hari Dokter</p>
-                            <table class="w-full">
-                                <thead class="bg-blue text-center text-white">
-                                    <tr>
-                                        <td class="border border-gray-300">No</td>
-                                        <td class="border border-gray-300">Hari</td>
-                                        <td class="border border-gray-300">Ketersediaan</td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-center">
-                                    @for ($i = 0; $i < 10; $i++)
-                                        <tr>
-                                            <td class="border border-gray-300">{{ $i + 1 }}</td>
-                                            <td class="border border-gray-300">Hari</td>
-                                            <td class="border border-gray-300">
-                                                <input type="checkbox" name="" id="">
-                                            </td>
-                                            <td class="border border-gray-300">Jadwal Dokter</td>
-                                        </tr>
-                                    @endfor
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="flex-1 mr-4">
-                            <textarea type="search" id="default-search"
-                                class="w-full h-[150px] ml-4 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukan nomer dokter" required></textarea>
-                            <div class="flex w-full py-4 mx-4 gap-2">
-                                <button
-                                    class="flex-1 bg-green-600 text-white px-4 py-2 mb-4 block w-[150px] rounded-md text-sm ">Simpan</button>
-                                <button
-                                    class="flex-1 bg-red-800 text-white px-4 py-2 mb-4 block w-[150px] rounded-md text-sm ">Batal</button>
+                    <div class="py-4 flex gap-4">
+                        <textarea type="search" id="default-search"
+                            class="flex-1 w-full h-[150px] block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Masukan alamat petugas" required></textarea>
+                        <div class="flex flex-1 flex-col items-center justify-start gap-4">
+                            <input type="search" id="default-search"
+                                class="w-full block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan email" required />
+                            <div class="flex w-full mx-4 gap-4 items-center">
+                                <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-md text-sm ">Simpan</button>
+                                <button class="flex-1 bg-red-800 text-white px-4 py-2 rounded-md text-sm ">Batal</button>
                             </div>
-
                         </div>
+                        <div class="flex flex-1 items-start">
+                            <input type="search" id="default-search"
+                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan password" required />
+                        </div>
+
 
                     </div>
                 </form>
