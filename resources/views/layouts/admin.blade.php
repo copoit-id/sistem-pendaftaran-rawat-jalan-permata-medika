@@ -14,7 +14,7 @@
 
 </head>
 @php
-    $title = 'Dashboard';
+    $title = 'Medika Indah';
 @endphp
 
 <body class="grid grid-cols-[300px,1fr]">
