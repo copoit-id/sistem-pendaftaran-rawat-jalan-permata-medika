@@ -71,16 +71,62 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                    @for ($i = 0; $i < 10; $i++)
-                                        <tr>
-                                            <td class="border border-gray-300">{{ $i + 1 }}</td>
-                                            <td class="border border-gray-300">Hari</td>
-                                            <td class="border border-gray-300">
-                                                <input type="checkbox" name="" id="">
-                                            </td>
-                                            <td class="border border-gray-300">Jadwal Dokter</td>
-                                        </tr>
-                                    @endfor
+                                    <tr class="senin">
+                                        <td class="border border-gray-300">1</td>
+                                        <td class="border border-gray-300">Senin</td>
+                                        <td class="border border-gray-300">
+                                            <input type="checkbox" name="" id="">
+                                        </td>
+                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                    </tr>
+                                    <tr class="selasa">
+                                        <td class="border border-gray-300">1</td>
+                                        <td class="border border-gray-300">Selasa</td>
+                                        <td class="border border-gray-300">
+                                            <input type="checkbox" name="" id="">
+                                        </td>
+                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                    </tr>
+                                    <tr class="rabu">
+                                        <td class="border border-gray-300">1</td>
+                                        <td class="border border-gray-300">Rabu</td>
+                                        <td class="border border-gray-300">
+                                            <input type="checkbox" name="" id="">
+                                        </td>
+                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                    </tr>
+                                    <tr class="kamis">
+                                        <td class="border border-gray-300">1</td>
+                                        <td class="border border-gray-300">Kamis</td>
+                                        <td class="border border-gray-300">
+                                            <input type="checkbox" name="" id="">
+                                        </td>
+                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                    </tr>
+                                    <tr class="jumat">
+                                        <td class="border border-gray-300">1</td>
+                                        <td class="border border-gray-300">Jumat</td>
+                                        <td class="border border-gray-300">
+                                            <input type="checkbox" name="" id="">
+                                        </td>
+                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                    </tr>
+                                    <tr class="sabtu">
+                                        <td class="border border-gray-300">1</td>
+                                        <td class="border border-gray-300">Sabtu</td>
+                                        <td class="border border-gray-300">
+                                            <input type="checkbox" name="" id="">
+                                        </td>
+                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                    </tr>
+                                    <tr class="minggu">
+                                        <td class="border border-gray-300">1</td>
+                                        <td class="border border-gray-300">Minggu</td>
+                                        <td class="border border-gray-300">
+                                            <input type="checkbox" name="" id="">
+                                        </td>
+                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
