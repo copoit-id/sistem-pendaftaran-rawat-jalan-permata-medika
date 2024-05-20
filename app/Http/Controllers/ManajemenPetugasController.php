@@ -26,7 +26,6 @@ class ManajemenPetugasController extends Controller
     }
 
     public function addPetugas(Request $request){
-        
         // dd($request->all());
         Petugas::create($request->all());
         return redirect('/manajemen-petugas');
