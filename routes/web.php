@@ -21,7 +21,6 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/pendaftaran-pasien', [PendaftaranPasienController::class, 'index']);
 Route::get('/keluhan-pasien', [KeluhanController::class, 'index']);
 Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index']);
-Route::get('/laporan', [LaporanController::class, 'index']);
 
 Route::prefix('manajemen-petugas')->group(function () {
     Route::get('/', [ManajemenPetugasController::class, 'index']);

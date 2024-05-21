@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/laporan') }}"
+                    <a href="{{ url('/rekam-medis') }}"
                         class="flex items-center p-3 {{ $title == 'Karyawan' ? 'text-white' : 'text-white hover:bg-gray-100' }}  rounded-lg dark:text-white dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 {{ $title == 'Karyawan' ? 'text-white' : 'text-white  group-hover:text-gray-900' }} transition duration-75 dark:text-gray-400 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
