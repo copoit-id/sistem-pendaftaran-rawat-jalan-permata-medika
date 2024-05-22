@@ -55,5 +55,51 @@ class DokterSeeder extends Seeder
                 'id_poli' => 5,
             ],
         ]);
+
+        // dokter 1
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '1',
+            'hari' => 'senin',
+            'jadwal' => '07.00 - 10.00',
+        ]);
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '1',
+            'hari' => 'selasa',
+            'jadwal' => '08.30 - 12.30',
+        ]);
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '1',
+            'hari' => 'rabu',
+            'jadwal' => '17.00 - 19.00',
+        ]);
+
+        // dokter 2
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '2',
+            'hari' => 'senin',
+            'jadwal' => '08.00 - 11.00',
+        ]);
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '2',
+            'hari' => 'selasa',
+            'jadwal' => '09.30 - 13.30',
+        ]);
+
+        // dokter 3
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '3',
+            'hari' => 'senin',
+            'jadwal' => '10.00 - 13.00',
+        ]);
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '3',
+            'hari' => 'selasa',
+            'jadwal' => '11.30 - 14.30',
+        ]);
+        DB::table('jadwal_dokter')->insert([
+            'id_dokter' => '3',
+            'hari' => 'rabu',
+            'jadwal' => '21.30 - 22.30',
+        ]);
     }
 }

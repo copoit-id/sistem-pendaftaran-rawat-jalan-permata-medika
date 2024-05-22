@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('keluhan', function (Blueprint $table) {
             $table->id('id_keluhan');
             $table->text('keluhan_pasien');
-            $table->unsignedBigInteger('id_dokter');
-            $table->unsignedBigInteger('id_pasien');
-            $table->unsignedBigInteger('id_petugas');
+            $table->foreignId('id_dokter')->constrained('dokter');
+            $table->foreignId('id_pasien')->constrained('pasien');
+            $table->foreignId('id_petugas')->constrained('petugas');
+            // $table->unsignedBigInteger('id_dokter');
+            // $table->unsignedBigInteger('id_pasien');
+            // $table->unsignedBigInteger('id_petugas');
 
             // $table->foreign('id_dokter')->references('id_dokter')->on('dokter');
             // $table->foreign('id_pasien')->references('id_pasien')->on('pasien');
