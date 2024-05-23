@@ -13,6 +13,22 @@ class DokterSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table('poli')->insert([
+            'nama_poli' => 'Poli Mata',
+        ]);
+        DB::table('poli')->insert([
+            'nama_poli' => 'Poli Hidung',
+        ]);
+        DB::table('poli')->insert([
+            'nama_poli' => 'Poli Telinga',
+        ]);
+        DB::table('poli')->insert([
+            'nama_poli' => 'Poli Klinik',
+        ]);
+        DB::table('poli')->insert([
+            'nama_poli' => 'Poli Dalam',
+        ]);
+
         DB::table('dokter')->insert([
             [
                 'nama_dokter' => 'Dr. John Doe',
