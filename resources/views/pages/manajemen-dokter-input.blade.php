@@ -36,26 +36,27 @@
         <div class="bg-white w-full mt-4 shadow-sm rounded-md px-4 py-8">
             <p class="text-center font-bold text-[20px] mb-4">Form Input Dokter</p>
             <div>
-                <form class="mx-auto">
+                <form action="{{ route('addDokter') }}" method="post" class="mx-auto">
+                    @csrf
                     <label for="default-search"
                         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div class="relative flex w-full gap-4">
-                        <input type="search" id="default-search"
+                        <input type="search" id="default-search" name="nama_dokter"
                             class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Masukan nomer dokter" required />
-                        <select id="countries_disabled"
+                            placeholder="Masukan nama dokter" required />
+                        <select id="countries_disabled" name="poli"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Poliklinik</option>
-                            <option value="US">Poli Mata</option>
-                            <option value="CA">Poli Telinga</option>
-                            <option value="FR">Poli Kulit</option>
-                            <option value="DE">Poli Gigi</option>
+                            <option value="1">Poli Mata</option>
+                            <option value="2">Poli Telinga</option>
+                            <option value="3">Poli Kulit</option>
+                            <option value="4">Poli Gigi</option>
                         </select>
-                        <select id="countries_disabled"
+                        <select id="countries_disabled" name="jenis_kelamin"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Jenis Kelamin</option>
-                            <option value="US">Laki-laki</option>
-                            <option value="CA">Perempuan</option>
+                            <option value="laki-laki">Laki-laki</option>
+                            <option value="perempuan">Perempuan</option>
                         </select>
                     </div>
                     <div class="py-4 flex">
@@ -75,65 +76,100 @@
                                         <td class="border border-gray-300">1</td>
                                         <td class="border border-gray-300">Senin</td>
                                         <td class="border border-gray-300">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="hari_senin" id="">
                                         </td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                        <td class="border border-gray-300 flex justify-center items-center gap-2">
+                                            <input type="time" name="jadwal_mulai_senin" placeholder="07.00 - 10.00">
+                                            <p>-</p>
+                                            <input type="time" name="jadwal_selesai_senin" placeholder="07.00 - 10.00">
+                                        </td>
                                     </tr>
                                     <tr class="selasa">
                                         <td class="border border-gray-300">1</td>
                                         <td class="border border-gray-300">Selasa</td>
                                         <td class="border border-gray-300">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="hari_selasa" id="">
                                         </td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                        <td class="border border-gray-300 flex justify-center items-center gap-2">
+                                            <input type="time" name="jadwal_mulai_selasa" placeholder="07.00 - 10.00">
+                                            <p>-</p>
+                                            <input type="time" name="jadwal_selesai_selasa" placeholder="07.00 - 10.00">
+                                        </td>
                                     </tr>
                                     <tr class="rabu">
                                         <td class="border border-gray-300">1</td>
                                         <td class="border border-gray-300">Rabu</td>
                                         <td class="border border-gray-300">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="hari_rabu" id="">
                                         </td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                        <td class="border border-gray-300 flex justify-center items-center gap-2">
+                                            <input type="time" name="jadwal_mulai_rabu" placeholder="07.00 - 10.00">
+                                            <p>-</p>
+                                            <input type="time" name="jadwal_selesai_rabu" placeholder="07.00 - 10.00">
+                                        </td>
                                     </tr>
                                     <tr class="kamis">
                                         <td class="border border-gray-300">1</td>
                                         <td class="border border-gray-300">Kamis</td>
                                         <td class="border border-gray-300">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="hari_kamis" id="">
                                         </td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                        <td class="border border-gray-300 flex justify-center items-center gap-2">
+                                            <input type="time" name="jadwal_mulai_kamis" placeholder="07.00 - 10.00">
+                                            <p>-</p>
+                                            <input type="time" name="jadwal_selesai_kamis"
+                                                placeholder="07.00 - 10.00">
+                                        </td>
                                     </tr>
                                     <tr class="jumat">
                                         <td class="border border-gray-300">1</td>
                                         <td class="border border-gray-300">Jumat</td>
                                         <td class="border border-gray-300">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="hari_jumat" id="">
                                         </td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                        <td class="border border-gray-300 flex justify-center items-center gap-2">
+                                            <input type="time" name="jadwal_mulai_jumat" placeholder="07.00 - 10.00">
+                                            <p>-</p>
+                                            <input type="time" name="jadwal_selesai_jumat"
+                                                placeholder="07.00 - 10.00">
+                                        </td>
                                     </tr>
                                     <tr class="sabtu">
                                         <td class="border border-gray-300">1</td>
                                         <td class="border border-gray-300">Sabtu</td>
                                         <td class="border border-gray-300">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="hari_sabtu" id="">
                                         </td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                        <td class="border border-gray-300 flex justify-center items-center gap-2">
+                                            <input type="time" name="jadwal_mulai_sabtu" placeholder="07.00 - 10.00">
+                                            <p>-</p>
+                                            <input type="time" name="jadwal_selesai_sabtu"
+                                                placeholder="07.00 - 10.00">
+                                        </td>
                                     </tr>
                                     <tr class="minggu">
                                         <td class="border border-gray-300">1</td>
                                         <td class="border border-gray-300">Minggu</td>
                                         <td class="border border-gray-300">
-                                            <input type="checkbox" name="" id="">
+                                            <input type="checkbox" name="hari_minggu" id="">
                                         </td>
-                                        <td class="border border-gray-300">Jadwal Dokter</td>
+                                        <td class="border border-gray-300 flex justify-center items-center gap-2">
+                                            <input type="time" name="jadwal_mulai_minggu" placeholder="07.00 - 10.00">
+                                            <p>-</p>
+                                            <input type="time" name="jadwal_selesai_minggu"
+                                                placeholder="07.00 - 10.00">
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="flex-1 mr-4">
-                            <textarea type="search" id="default-search"
+                            <input type="search" id="default-search" name="nomor_telepon"
+                                class="w-full block p-4 ml-4 mb-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan nomer dokter" required />
+                            <textarea type="search" id="default-search" name="alamat_lengkap"
                                 class="w-full h-[150px] ml-4 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukan nomer dokter" required></textarea>
+                                placeholder="Masukan alamat lengkap" required></textarea>
                             <div class="flex w-full py-4 mx-4 gap-2">
                                 <button
                                     class="flex-1 bg-green-600 text-white px-4 py-2 mb-4 block w-[150px] rounded-md text-sm ">Simpan</button>
@@ -145,7 +181,6 @@
 
                     </div>
                 </form>
-
             </div>
         </div>
     </section>

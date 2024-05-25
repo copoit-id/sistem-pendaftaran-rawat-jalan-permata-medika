@@ -35,7 +35,6 @@ class DokterSeeder extends Seeder
                 'nomor_telepon' => '081234567890',
                 'jenis_kelamin' => 'laki-laki',
                 'alamat_lengkap' => 'Jl. Kebon Jeruk No. 123, Jakarta',
-                'jadwal_dokter' => 'Senin, Rabu, Jumat',
                 'id_poli' => 1,
             ],
             [
@@ -43,7 +42,6 @@ class DokterSeeder extends Seeder
                 'nomor_telepon' => '082345678901',
                 'jenis_kelamin' => 'perempuan',
                 'alamat_lengkap' => 'Jl. Mangga Dua No. 456, Surabaya',
-                'jadwal_dokter' => 'Selasa, Kamis, Sabtu',
                 'id_poli' => 2,
             ],
             [
@@ -51,7 +49,6 @@ class DokterSeeder extends Seeder
                 'nomor_telepon' => '083456789012',
                 'jenis_kelamin' => 'laki-laki',
                 'alamat_lengkap' => 'Jl. Melati No. 789, Bandung',
-                'jadwal_dokter' => 'Senin, Rabu, Jumat',
                 'id_poli' => 3,
             ],
             [
@@ -59,7 +56,6 @@ class DokterSeeder extends Seeder
                 'nomor_telepon' => '084567890123',
                 'jenis_kelamin' => 'perempuan',
                 'alamat_lengkap' => 'Jl. Mawar No. 101, Yogyakarta',
-                'jadwal_dokter' => 'Selasa, Kamis, Sabtu',
                 'id_poli' => 4,
             ],
             [
@@ -67,7 +63,6 @@ class DokterSeeder extends Seeder
                 'nomor_telepon' => '085678901234',
                 'jenis_kelamin' => 'laki-laki',
                 'alamat_lengkap' => 'Jl. Tulip No. 202, Medan',
-                'jadwal_dokter' => 'Senin, Rabu, Jumat',
                 'id_poli' => 5,
             ],
         ]);
@@ -76,46 +71,54 @@ class DokterSeeder extends Seeder
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '1',
             'hari' => 'senin',
-            'jadwal' => '07.00 - 10.00',
+            'jadwal_mulai' => '07:00',
+            'jadwal_selesai' => '09:00',
         ]);
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '1',
             'hari' => 'selasa',
-            'jadwal' => '08.30 - 12.30',
+            'jadwal_mulai' => '08:00',
+            'jadwal_selesai' => '10:00',
         ]);
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '1',
             'hari' => 'rabu',
-            'jadwal' => '17.00 - 19.00',
+            'jadwal_mulai' => '07:00',
+            'jadwal_selesai' => '09:00',
         ]);
 
         // dokter 2
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '2',
             'hari' => 'senin',
-            'jadwal' => '08.00 - 11.00',
+            'jadwal_mulai' => '10:00',
+            'jadwal_selesai' => '12:00',
         ]);
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '2',
             'hari' => 'selasa',
-            'jadwal' => '09.30 - 13.30',
+            'jadwal_mulai' => '08:00',
+            'jadwal_selesai' => '10:00',
         ]);
 
         // dokter 3
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '3',
             'hari' => 'senin',
-            'jadwal' => '10.00 - 13.00',
+            'jadwal_mulai' => '12:00',
+            'jadwal_selesai' => '14:00',
         ]);
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '3',
             'hari' => 'selasa',
-            'jadwal' => '11.30 - 14.30',
+            'jadwal_mulai' => '13:00',
+            'jadwal_selesai' => '15:00',
         ]);
         DB::table('jadwal_dokter')->insert([
             'id_dokter' => '3',
             'hari' => 'rabu',
-            'jadwal' => '21.30 - 22.30',
+            'jadwal_mulai' => '12:00',
+            'jadwal_selesai' => '14:00',
         ]);
     }
 }

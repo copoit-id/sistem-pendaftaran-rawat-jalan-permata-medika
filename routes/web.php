@@ -14,13 +14,19 @@ Route::get('/', function () {
     return redirect('/manajemen-dokter');
 });
 
-Route::get('/manajemen-dokter', [ManajemenDokterController::class, 'index']);
-Route::get('/input-dokter', [ManajemenDokterController::class, 'indexInput']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/pendaftaran-pasien', [PendaftaranPasienController::class, 'index']);
 Route::get('/keluhan-pasien', [KeluhanController::class, 'index']);
 Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index']);
+
+
+Route::prefix('manajemen-dokter')->group(function () {
+    Route::get('/', [ManajemenDokterController::class, 'index']);
+    Route::get('/input-dokter', [ManajemenDokterController::class, 'indexInput']);
+    Route::post('/add-dokter', [ManajemenDokterController::class, 'addDokter'])->name('addDokter');
+
+});
 
 Route::prefix('manajemen-petugas')->group(function () {
     Route::get('/', [ManajemenPetugasController::class, 'index']);

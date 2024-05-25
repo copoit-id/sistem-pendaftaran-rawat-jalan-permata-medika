@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nomor_telepon');
             $table->enum('jenis_kelamin',['laki-laki', 'perempuan']);
             $table->string('alamat_lengkap');
-            $table->string('jadwal_dokter');
             $table->BigInteger('id_poli')->unsigned();
             $table->foreign('id_poli')->references('id_poli')->on('poli');
         });

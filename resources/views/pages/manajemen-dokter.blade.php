@@ -3,7 +3,8 @@
 @section('title', 'Manajemen Dokter')
 @section('content')
     <section class="content">
-        <a href="/input-dokter" class="bg-blue text-white px-4 py-2 mb-4 block w-[150px] rounded-md text-sm me-4">+ Tambah
+        <a href="/manajemen-dokter/input-dokter"
+            class="bg-blue text-white px-4 py-2 mb-4 block w-[150px] rounded-md text-sm me-4">+ Tambah
             Dokter</a>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table id="table-dokter" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
