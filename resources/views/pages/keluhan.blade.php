@@ -26,28 +26,28 @@
         <div class="bg-white w-full mt-4 shadow-sm rounded-md px-4 py-8">
             <p class="text-center font-bold text-[20px] mb-4">Form Keluhan Pasien</p>
             <div>
-                <form action="{{ route('addPetugas') }}" method="post" class="mx-auto">
+                <form action="{{ route('addKeluhan') }}" method="post" class="mx-auto">
                     @csrf
                     <div class="pb-8 border-b-2 mb-4">
                         <div class="relative flex w-full gap-4">
-                            <input type="search" id="default-search"
-                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukan ID Pasien" name="id_pasien" required />
-                            <input name="nama_pasien" type="text" id="default-search"
-                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukan Nama Pasien" required />
-                            <input name="nik    " type="text" id="default-search"
+                            <input name="nik" type="text" id="nik"
                                 class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Masukan Nomor Kependudukan" required />
+                            <input name="nama_pasien" type="text" id="nama_pasien"
+                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama Pasien" required />
+                            <input name="layanan_pembayaran" type="text" id="layanan_pembayaran"
+                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Layanan Pembayaran" required />
                         </div>
                         <div class="relative flex w-full gap-4 py-4">
-                            <select id="countries_disabled" name="jenis_kelamin"
+                            <select id="jenis_kelamin" name="jenis_kelamin"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Jenis Kelamin</option>
                                 <option value="laki-laki">Laki-Laki</option>
                                 <option value="perempuan">Perempuan</option>
                             </select>
-                            <select id="countries_disabled" name="agama"
+                            <select id="agama" name="agama"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Agama</option>
                                 <option value="islam">Islam</option>
@@ -57,7 +57,7 @@
                                 <option value="budha">Budha</option>
                                 <option value="konghucu">Konghucu</option>
                             </select>
-                            <select id="countries_disabled" name="status_pernikahan"
+                            <select id="status_pernikahan" name="status_pernikahan"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Status Pernikahan</option>
                                 <option value="sudah menikah">Sudah Menikah</option>
@@ -72,18 +72,18 @@
                         </div>
                     </div>
                     <div class="py-4 flex gap-4">
-                        <textarea name="keluhan_pasien" type="search" id="default-search"
+                        <textarea name="keluhan_pasien" type="search" id="default-keluhan_pasien"
                             class="flex-1 w-full h-[150px] block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukan keluhan pasien" required></textarea>
                         <div class="flex flex-1 flex-col items-center justify-start gap-4">
-                            <select id="countries_disabled" name="jenis_kelamin"
+                            <select id="id_poli" name="id_poli"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Poli Tujuan</option>
-                                <option value="laki-laki">Poli Mata</option>
-                                <option value="perempuan">Poli Telinga</option>
-                                <option value="perempuan">Poli Hidung</option>
+                                @foreach ($daftar_poli as $poli)
+                                    <option value="{{ $poli->id_poli }}">{{ $poli->nama_poli }}</option>
+                                @endforeach
                             </select>
-                            <select id="countries_disabled" name="jenis_kelamin"
+                            <select id="jadwal_dokter" name="jadwal_dokter"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Jadwal Tersedia</option>
                                 <option value="laki-laki">07.00 - 09.00</option>
@@ -96,12 +96,12 @@
                             </div>
                         </div>
                         <div class="flex flex-1 items-start">
-                            <select id="countries_disabled" name="jenis_kelamin"
+                            <select id="id_dokter" name="id_dokter"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Dokter</option>
-                                <option value="laki-laki">dr. Kevin Tanes</option>
-                                <option value="perempuan">dr. Dina Ftriana</option>
-                                <option value="perempuan">dr. Anggara Kevin</option>
+                                @foreach ($daftar_dokter as $dokter)
+                                    <option value="{{ $dokter->id_dokter }}">{{ $dokter->nama_dokter }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

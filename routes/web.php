@@ -26,8 +26,10 @@ Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index']);
 
 Route::prefix('keluhan-pasien')->group(function () {
     Route::get('/', [KeluhanController::class, 'index']);
-    Route::post('/add-keluhan', [PendaftaranPasienController::class, 'addKeluhan'])->name('addKeluhan');
-    Route::get('/check-data-pasien/{nik}', [PendaftaranPasienController::class, 'checkDataPasien'])->name('checkDataPasien');
+    Route::get('/cetak-antrian', [KeluhanController::class, 'indexCetakAntrian']);
+    Route::post('/add-keluhan', [KeluhanController::class, 'addKeluhan'])->name('addKeluhan');
+    Route::post('/get-dokter-poli', [KeluhanController::class, 'getDokterByPoli'])->name('getDokterByPoli');
+    Route::get('/check-data-pasien/{nik}', [KeluhanController::class, 'checkDataPasien'])->name('checkDataPasien');
 });
 
 Route::prefix('pendaftaran-pasien')->group(function () {

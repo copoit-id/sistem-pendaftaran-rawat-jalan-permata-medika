@@ -18,14 +18,4 @@ class PendaftaranPasienController extends Controller
         }
     }
 
-    public function checkDataPasien($nik){
-        dd("halo");
-        $pasien = Pasien::where('nik', $nik)->first();
-
-        if ($pasien) {
-            return response()->json(['status' => 'success', 'data' => $pasien]);
-        } else {
-            return response()->json(['status' => 'error', 'message' => 'Patient not found']);
-        }
-    }
 }

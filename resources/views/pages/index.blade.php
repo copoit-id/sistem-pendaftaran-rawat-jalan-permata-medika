@@ -38,7 +38,7 @@
     <section class="flex flex-col items-center justify-center py-[150px] gap-4">
         <h1 class="text-[20px] font-bold">Check Jadwal Dokter</h1>
         <p>Silahkan pilih poli dan tanggal tujuan, lalu klik tombol "Cari Jadwal"</p>
-        <div class="flex max-w-[500px] gap-4">
+        <div class="flex w-[600px] gap-4">
             <select id="countries_disabled" name="poli"
                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Pilih Poli</option>
@@ -50,7 +50,7 @@
         </div>
 
         <table id="table-dokter"
-            class="w-[1000px] border text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            class="w-[1200px] border text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">No</th>
