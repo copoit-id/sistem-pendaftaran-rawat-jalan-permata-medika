@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManajemenDokterController;
 use App\Http\Controllers\ManajemenPetugasController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PendaftaranPasienController;
 use App\Http\Controllers\RekamMedisController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,9 @@ Route::post('/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/', [MainController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index']);
+
+Route::get('/view-pdf', [PDFController::class, 'index']);
+Route::get('/download-pdf', [PDFController::class, 'generatePDF']);
 
 Route::prefix('keluhan-pasien')->group(function () {
     Route::get('/', [KeluhanController::class, 'index']);
