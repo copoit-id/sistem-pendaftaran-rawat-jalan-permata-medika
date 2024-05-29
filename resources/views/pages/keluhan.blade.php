@@ -2,7 +2,7 @@
 
 @section('title', 'Keluhan')
 @section('content')
-    <section class="content">
+    <section id="keluhan" class="content">
         <div class="flex">
             <a href="/keluhan-pasien" class="block pl-4 pr-6 rounded-full py-1 bg-blue text-white text-[14px]"><i
                     class="ri-arrow-left-line mr-2 font-bold"></i>Kembali</a>
@@ -28,47 +28,51 @@
             <div>
                 <form action="{{ route('addPetugas') }}" method="post" class="mx-auto">
                     @csrf
-                    <label for="default-search"
-                        class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                    <div class="relative flex w-full gap-4">
-                        <input type="search" id="default-search"
-                            class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Masukan ID Pasien" name="nama_petugas" required />
-                        <input name="nomor_telepon" type="search" id="default-search"
-                            class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Masukan Nama Pasien" required />
-                        <input name="nomor_telepon" type="search" id="default-search"
-                            class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Masukan Nomor Kependudukan" required />
+                    <div class="pb-8 border-b-2 mb-4">
+                        <div class="relative flex w-full gap-4">
+                            <input type="search" id="default-search"
+                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan ID Pasien" name="id_pasien" required />
+                            <input name="nama_pasien" type="text" id="default-search"
+                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nama Pasien" required />
+                            <input name="nik    " type="text" id="default-search"
+                                class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Masukan Nomor Kependudukan" required />
+                        </div>
+                        <div class="relative flex w-full gap-4 py-4">
+                            <select id="countries_disabled" name="jenis_kelamin"
+                                class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Pilih Jenis Kelamin</option>
+                                <option value="laki-laki">Laki-Laki</option>
+                                <option value="perempuan">Perempuan</option>
+                            </select>
+                            <select id="countries_disabled" name="agama"
+                                class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Pilih Agama</option>
+                                <option value="islam">Islam</option>
+                                <option value="protestan">Kristen</option>
+                                <option value="katolik">Katolik</option>
+                                <option value="hindu">Hindu</option>
+                                <option value="budha">Budha</option>
+                                <option value="konghucu">Konghucu</option>
+                            </select>
+                            <select id="countries_disabled" name="status_pernikahan"
+                                class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Pilih Status Pernikahan</option>
+                                <option value="sudah menikah">Sudah Menikah</option>
+                                <option value="belum menikah">Belom Menikah</option>
+                            </select>
+                        </div>
+                        <div class="flex justify-center">
+                            <div id="btn-check-data-pasien"
+                                class="bg-blue cursor-pointer text-center text-white px-4 w-[200px] py-2">Check
+                                Data
+                                Pasien</div>
+                        </div>
                     </div>
-                    <div class="relative flex w-full gap-4 py-4">
-                        <select id="countries_disabled" name="jenis_kelamin"
-                            class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Pilih Jenis Kelamin</option>
-                            <option value="laki-laki">Laki-Laki</option>
-                            <option value="perempuan">Perempuan</option>
-                        </select>
-                        <select id="countries_disabled" name="jenis_kelamin"
-                            class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Pilih Agama</option>
-                            <option value="laki-laki">Islam</option>
-                            <option value="perempuan">Kristen</option>
-                            <option value="perempuan">Katolik</option>
-                            <option value="perempuan">Hindu</option>
-                            <option value="perempuan">Budha</option>
-                            <option value="perempuan">Konghucu</option>
-                        </select>
-                        <select id="countries_disabled" name="jenis_kelamin"
-                            class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Pilih Status Pernikahan</option>
-                            <option value="laki-laki">Sudah Menikah</option>
-                            <option value="perempuan">Belom Menikah</option>
-                        </select>
-                    </div>
-                    <span class="block w-full h-[2px] bg-gray-200 mt-4 mb-8"></span>
-
                     <div class="py-4 flex gap-4">
-                        <textarea name="alamat_lengkap" type="search" id="default-search"
+                        <textarea name="keluhan_pasien" type="search" id="default-search"
                             class="flex-1 w-full h-[150px] block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukan keluhan pasien" required></textarea>
                         <div class="flex flex-1 flex-col items-center justify-start gap-4">
@@ -100,10 +104,8 @@
                                 <option value="perempuan">dr. Anggara Kevin</option>
                             </select>
                         </div>
-
                     </div>
                 </form>
-
             </div>
         </div>
     </section>

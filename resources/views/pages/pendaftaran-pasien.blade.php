@@ -36,15 +36,15 @@
         <div class="bg-white w-full mt-4 shadow-sm rounded-md px-4 py-8">
             <p class="text-center font-bold text-[20px] mb-4">Form Pendaftaran Pasien</p>
             <div>
-                <form action="{{ route('addPetugas') }}" method="post" class="mx-auto">
+                <form action="{{ route('addPasien') }}" method="post" class="mx-auto">
                     @csrf
                     <label for="default-search"
                         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div class="relative flex w-full gap-4">
                         <input type="search" id="default-search"
                             class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Masukan nama pasien" name="nama_petugas" required />
-                        <input name="nomor_telepon" type="search" id="default-search"
+                            placeholder="Masukan nama pasien" name="nama_pasien" required />
+                        <input name="nik" type="search" id="default-search"
                             class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukan NIK" required />
                         <select id="countries_disabled" name="jenis_kelamin"
@@ -55,54 +55,50 @@
                         </select>
                     </div>
                     <div class="relative flex w-full gap-4 py-4">
-                        <input type="date" id="default-search"
+                        <input type="date" name="tanggal_lahir" id="default-search"
                             class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukan nama pasien" name="nama_petugas" required />
-                        <select id="countries_disabled" name="jenis_kelamin"
+                        <select id="countries_disabled" name="agama"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Agama</option>
-                            <option value="laki-laki">Islam</option>
-                            <option value="perempuan">Kristen</option>
-                            <option value="perempuan">Katolik</option>
-                            <option value="perempuan">Hindu</option>
-                            <option value="perempuan">Budha</option>
-                            <option value="perempuan">Konghucu</option>
+                            <option value="islam">Islam</option>
+                            <option value="kristen">Kristen</option>
+                            <option value="katolik">Katolik</option>
+                            <option value="hindu">Hindu</option>
+                            <option value="budha">Budha</option>
+                            <option value="konghucu">Konghucu</option>
                         </select>
                         <input name="nomor_telepon" type="search" id="default-search"
                             class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukan nomor telepon" required />
                     </div>
                     <div class="relative flex w-full gap-4 pb-4">
-                        <select id="countries_disabled" name="jenis_kelamin"
+                        <select id="countries_disabled" name="pendidikan"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Pendidikan</option>
-                            <option value="laki-laki">SD</option>
-                            <option value="perempuan">SMP</option>
-                            <option value="perempuan">SMK</option>
-                            <option value="perempuan">S1</option>
-                            <option value="perempuan">S2</option>
-                            <option value="perempuan">S3</option>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SMA">SMA</option>
+                            <option value="S1">S1</option>
+                            <option value="S2">S2</option>
+                            <option value="S3">S3</option>
                         </select>
-                        <select id="countries_disabled" name="jenis_kelamin"
+                        <select id="countries_disabled" name="status_pernikahan"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Status Pernikahan</option>
-                            <option value="laki-laki">Islam</option>
-                            <option value="perempuan">Kristen</option>
-                            <option value="perempuan">Katolik</option>
-                            <option value="perempuan">Hindu</option>
-                            <option value="perempuan">Budha</option>
-                            <option value="perempuan">Konghucu</option>
+                            <option value="sudah menikah">Sudah Menikah</option>
+                            <option value="belum menikah">Belum Menikah</option>
                         </select>
-                        <input name="nomor_telepon" type="search" id="default-search"
+                        <input name="nama_ibu_kandung" type="search" id="default-search"
                             class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukan nama ibu kandung" required />
                     </div>
                     <div class="py-4 flex gap-4">
                         <textarea name="alamat_lengkap" type="search" id="default-search"
                             class="flex-1 w-full h-[150px] block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Masukan alamat petugas" required></textarea>
+                            placeholder="Masukan alamat pasien" required></textarea>
                         <div class="flex flex-1 flex-col items-center justify-start gap-4">
-                            <input name="email" type="search" id="default-search"
+                            <input name="kode_pos" type="search" id="default-search"
                                 class="w-full block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Masukan kode pos" required />
                             <div class="flex w-full mx-4 gap-4 items-center">
@@ -112,7 +108,7 @@
                             </div>
                         </div>
                         <div class="flex flex-1 items-start">
-                            <input name="password" type="search" id="default-search"
+                            <input name="layanan_pembayaran" type="search" id="default-search"
                                 class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Masukan layanan pembayaran" required />
                         </div>

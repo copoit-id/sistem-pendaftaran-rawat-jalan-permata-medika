@@ -4,28 +4,41 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JadwalDokterController;
 use App\Http\Controllers\KeluhanController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManajemenDokterController;
 use App\Http\Controllers\ManajemenPetugasController;
 use App\Http\Controllers\PendaftaranPasienController;
 use App\Http\Controllers\RekamMedisController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect('/manajemen-dokter');
-});
+// Route::get('/', function () {
+//     return redirect('/manajemen-dokter');
+// });
 
+// login
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/authenticate', [LoginController::class, 'authenticate']);
 
+Route::get('/', [MainController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/pendaftaran-pasien', [PendaftaranPasienController::class, 'index']);
-Route::get('/keluhan-pasien', [KeluhanController::class, 'index']);
 Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index']);
 
+Route::prefix('keluhan-pasien')->group(function () {
+    Route::get('/', [KeluhanController::class, 'index']);
+    Route::post('/add-keluhan', [PendaftaranPasienController::class, 'addKeluhan'])->name('addKeluhan');
+    Route::get('/check-data-pasien/{nik}', [PendaftaranPasienController::class, 'checkDataPasien'])->name('checkDataPasien');
+});
+
+Route::prefix('pendaftaran-pasien')->group(function () {
+    Route::get('/', [PendaftaranPasienController::class, 'index']);
+    Route::post('/add-pasien', [PendaftaranPasienController::class, 'addPasien'])->name('addPasien');
+});
 
 Route::prefix('manajemen-dokter')->group(function () {
     Route::get('/', [ManajemenDokterController::class, 'index']);
     Route::get('/input-dokter', [ManajemenDokterController::class, 'indexInput']);
     Route::post('/add-dokter', [ManajemenDokterController::class, 'addDokter'])->name('addDokter');
-
 });
 
 Route::prefix('manajemen-petugas')->group(function () {
