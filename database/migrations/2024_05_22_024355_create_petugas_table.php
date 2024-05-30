@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('nomor_telepon');
             $table->enum('jenis_kelamin',['laki-laki', 'perempuan']);
             $table->string('alamat_lengkap');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->text('password');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

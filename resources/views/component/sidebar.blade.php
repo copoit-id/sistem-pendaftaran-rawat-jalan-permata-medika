@@ -9,7 +9,7 @@
                 <li>
                     <a href="{{ url('/dashboard') }}"
                         class="flex items-center p-3 {{ $title == 'Manajemen Bahan' ? 'text-white' : 'text-white hover:bg-gray-100' }} rounded-lg dark:text-white dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 {{ $title == 'Dashboard' ? ' text-red' : 'text-gray-900  group-hover:text-gray-900' }} transition duration-75 "
+                        <svg class="flex-shrink-0 w-5 h-5 {{ $title == 'Dashboard' ? ' text-red' : '  group-hover:text-gray-900' }} transition duration-75 "
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 18 18">
                             <path

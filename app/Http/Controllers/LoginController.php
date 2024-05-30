@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Petugas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -17,21 +19,23 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+
+        $petugas = Petugas::where('email', $credentials['email'])->first();
+
+        if ($petugas && Hash::check($credentials['password'], $petugas->password)) {
+            $request->session()->put('logged_in_petugas', $petugas->id_petugas);
             $request->session()->regenerate();
             return redirect('/dashboard');
-        }else{
+        } else {
             return back()->withErrors([
-                'email' => 'Data wajib diisi',
+                'email' => 'The provided credentials do not match our records.',
             ]);
         }
     }
 
     public function logout(Request $request){
-        Auth::logout();
-
+        $request->session()->forget('logged_in_petugas');
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect('/login');
