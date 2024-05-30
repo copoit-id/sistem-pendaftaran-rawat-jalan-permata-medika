@@ -11,28 +11,28 @@
                     <i class="ri-dashboard-fill"></i>
                     <p class="font-thin">Jumlah Dokter</p>
                 </span>
-                <p class="font-bold text-[20px]">18 Dokter</p>
+                <p class="font-bold text-[20px]">{{ $jumlah_dokter }} Dokter</p>
             </div>
             <div class="flex-1 px-10 py-6 bg-blue text-white">
                 <span class="flex gap-2">
                     <i class="ri-dashboard-fill"></i>
                     <p class="font-thin">Jumlah Dokter</p>
                 </span>
-                <p class="font-bold text-[20px]">18 Dokter</p>
+                <p class="font-bold text-[20px]">{{ $jumlah_karyawan }} Karyawan</p>
             </div>
             <div class="flex-1 px-10 py-6 bg-blue text-white">
                 <span class="flex gap-2">
                     <i class="ri-dashboard-fill"></i>
-                    <p class="font-thin">Jumlah Dokter</p>
+                    <p class="font-thin">Jumlah Pasien</p>
                 </span>
-                <p class="font-bold text-[20px]">18 Dokter</p>
+                <p class="font-bold text-[20px]">{{ $jumlah_pasien }} Pasien</p>
             </div>
             <div class="flex-1 px-10 py-6 bg-blue text-white">
                 <span class="flex gap-2">
                     <i class="ri-dashboard-fill"></i>
-                    <p class="font-thin">Jumlah Dokter</p>
+                    <p class="font-thin">Jumlah Rekam Medis</p>
                 </span>
-                <p class="font-bold text-[20px]">18 Dokter</p>
+                <p class="font-bold text-[20px]">{{ $jumlah_rekam_medis }} Rekam Medis</p>
             </div>
         </div>
     </section>

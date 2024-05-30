@@ -26,7 +26,7 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="m1 9 4-4-4-4" />
                             </svg>
-                            <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Input
+                            <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Edit
                                 Dokter</span>
                         </div>
                     </li>
@@ -41,21 +41,24 @@
                     <label for="default-search"
                         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                     <div class="relative flex w-full gap-4">
-                        <input type="search" id="default-search" name="nama_dokter"
+                        <input type="search" id="nama_dokter" name="nama_dokter" value="{{ $dokter->nama_dokter }}"
                             class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Masukan nama dokter" required />
                         <select id="countries_disabled" name="poli"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Poliklinik</option>
                             @foreach ($daftar_poli as $poli)
-                                <option value="{{ $poli->id_poli }}">{{ $poli->nama_poli }}</option>
+                                <option value="{{ $poli->id_poli }}"
+                                    {{ $poli->id_poli === $dokter->id_poli ? 'selected' : '' }}>{{ $poli->nama_poli }}
+                                </option>
                             @endforeach
                         </select>
                         <select id="countries_disabled" name="jenis_kelamin"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Pilih Jenis Kelamin</option>
-                            <option value="laki-laki">Laki-laki</option>
-                            <option value="perempuan">Perempuan</option>
+                            <option {{ $dokter->jenis_kelamin === 'laki-laki' ? 'selected' : '' }} value="laki-laki">
+                                Laki-laki</option>
+                            <option {{ $dokter->jenis_kelamin === 'perempuan' ? 'selected' : '' }} value="perempuan">
+                                Perempuan</option>
                         </select>
                     </div>
                     <div class="py-4 flex">
@@ -163,12 +166,13 @@
                             </table>
                         </div>
                         <div class="flex-1 mr-4">
-                            <input type="search" id="default-search" name="nomor_telepon"
+                            <input type="search" id="nomor_telepon" name="nomor_telepon"
+                                value="{{ $dokter->nomor_telepon }}"
                                 class="w-full block p-4 ml-4 mb-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Masukan nomer dokter" required />
-                            <textarea type="search" id="default-search" name="alamat_lengkap"
+                            <textarea type="search" id="alamat_lengkap" name="alamat_lengkap"
                                 class="w-full h-[150px] ml-4 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukan alamat lengkap" required></textarea>
+                                placeholder="Masukan alamat lengkap" required>{{ $dokter->alamat_lengkap }}</textarea>
                             <div class="flex w-full py-4 mx-4 gap-2">
                                 <button
                                     class="flex-1 bg-green-600 text-white px-4 py-2 mb-4 block w-[150px] rounded-md text-sm ">Simpan</button>

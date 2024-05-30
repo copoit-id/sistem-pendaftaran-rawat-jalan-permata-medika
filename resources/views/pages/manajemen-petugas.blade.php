@@ -57,10 +57,8 @@
                                 <td class="px-2 py-4">
                                     <a href="/manajemen-petugas/edit-petugas/{{ $petugas->id_petugas }}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    <form action="">
-                                        <button type="submit"
-                                            class="font-medium text-red-700 dark:text-blue-500 hover:underline">Hapus</button>
-                                    </form>
+                                    <a href="/manajemen-petugas/delete-petugas/{{ $petugas->id_petugas }}"
+                                        class="font-medium text-red-700 dark:text-blue-500 hover:underline">Hapus</a>
 
                                 </td>
                             </tr>
