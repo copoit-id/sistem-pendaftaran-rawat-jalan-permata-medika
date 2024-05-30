@@ -9,7 +9,7 @@
             <nav class="flex ml-4" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                     <li class="inline-flex items-center">
-                        <a href="#"
+                        <a href="/manajemen-dokter"
                             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                             <svg class="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 20 20">
@@ -47,10 +47,11 @@
                         <select id="countries_disabled" name="poli"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Poliklinik</option>
-                            <option value="1">Poli Mata</option>
-                            <option value="2">Poli Telinga</option>
-                            <option value="3">Poli Kulit</option>
-                            <option value="4">Poli Gigi</option>
+                            @foreach ($daftar_poli as $poli)
+                                <option value="{{ $poli->id_poli }}"
+                                    {{ $poli->id_poli === $dokter->id_poli ? 'selected' : '' }}>{{ $poli->nama_poli }}
+                                </option>
+                            @endforeach
                         </select>
                         <select id="countries_disabled" name="jenis_kelamin"
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

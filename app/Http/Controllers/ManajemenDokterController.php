@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dokter;
 use App\Models\JadwalDokter;
+use App\Models\Poli;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,21 +12,33 @@ class ManajemenDokterController extends Controller
 {
     public function index(){
         $daftar_dokter = Dokter::with('jadwalDokter')->get();
-        // return response()->json($menu);
-        // dd($menu->toJson());
+        foreach ($daftar_dokter as $dokter) {
+            $hari = [];
+            $jadwal_dokter = $dokter->jadwalDokter;
+            foreach ($jadwal_dokter as $jadwal) {
+                $hari[] = $jadwal['hari'];
+            }
+            $dokter->hari = $hari; // eror karna intelesensenya aja, ga ngaruh
+        }
+
 
         return view('pages.manajemen-dokter',[
             'daftar_dokter' => $daftar_dokter
         ]);
     }
     public function indexInput(){
-        return view('pages.manajemen-dokter-input');
+        $daftar_poli = Poli::all();
+        return view('pages.manajemen-dokter-input' ,[
+            'daftar_poli' => $daftar_poli
+        ]);
     }
 
     public function indexEdit($id){
-        $dokter = Dokter::find($id);
+        $dokter = Dokter::with('jadwalDokter')->where('id_dokter', $id)->first();
+        $daftar_poli = Poli::all();
         return view('pages.manajemen-dokter-edit',[
-            'dokter' => $dokter
+            'dokter' => $dokter,
+            'daftar_poli' => $daftar_poli
         ]);
     }
 
