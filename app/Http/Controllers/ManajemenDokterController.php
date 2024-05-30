@@ -22,6 +22,22 @@ class ManajemenDokterController extends Controller
         return view('pages.manajemen-dokter-input');
     }
 
+    public function indexEdit($id){
+        $dokter = Dokter::find($id);
+        return view('pages.manajemen-dokter-edit',[
+            'dokter' => $dokter
+        ]);
+    }
+
+    public function deleteDokter($id){
+        $dokter = Dokter::find($id);
+        if($dokter){
+            JadwalDokter::where('id_dokter', $dokter->id_dokter)->delete();
+            $dokter->delete();
+        }
+        return redirect('/manajemen-dokter');
+    }
+
     public function addDokter(Request $request){
         // dd($request->all());
         $dokter_query = Dokter::create([

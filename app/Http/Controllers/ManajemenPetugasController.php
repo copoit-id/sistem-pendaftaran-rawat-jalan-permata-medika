@@ -40,6 +40,19 @@ class ManajemenPetugasController extends Controller
     }
 
     public function updatePetugas(Request $request, $id){
+        Petugas::where('id_petugas', $id)->update([
+            'nama_petugas' => $request->nama_petugas,
+            'nomor_telepon' => $request->nomor_telepon,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat_lengkap' => $request->alamat_lengkap,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect('/manajemen-petugas');
+    }
 
+    public function detelePetugas($id){
+        Petugas::where('id_petugas', $id)->delete();
+        return redirect('/manajemen-petugas');
     }
 }

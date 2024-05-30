@@ -13,4 +13,10 @@ class RekamMedisController extends Controller
             'daftar_keluhan' => $daftar_keluhan
         ]);
     }
+
+    public function deleteRM($id){
+        $keluhan = Keluhan::find($id);
+        $keluhan->delete();
+        return redirect('/rekam-medis');
+    }
 }

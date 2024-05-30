@@ -52,8 +52,10 @@
                                     {{ $dokter->jadwal_dokter }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#"
+                                    <a href="/manajemen-dokter/edit-dokter/{{ $dokter->id_dokter }}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <a href="/manajemen-dokter/delete-dokter/{{ $dokter->id_dokter }}"
+                                        class="font-medium text-red-600 dark:text-blue-500 hover:underline">Hapus</a>
                                 </td>
                             </tr>
                         @endforeach

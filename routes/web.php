@@ -45,6 +45,8 @@ Route::middleware(CheckPetugasAuthenticated::class)->group(function () {
         Route::prefix('manajemen-dokter')->group(function () {
             Route::get('/', [ManajemenDokterController::class, 'index']);
             Route::get('/input-dokter', [ManajemenDokterController::class, 'indexInput']);
+            Route::get('/edit-dokter/{id}', [ManajemenDokterController::class, 'indexEdit']);
+            Route::get('/delete-dokter/{id}', [ManajemenDokterController::class, 'deleteDokter']);
             Route::post('/add-dokter', [ManajemenDokterController::class, 'addDokter'])->name('addDokter');
         });
 
@@ -53,9 +55,12 @@ Route::middleware(CheckPetugasAuthenticated::class)->group(function () {
             Route::get('/input-petugas', [ManajemenPetugasController::class, 'indexInput']);
             Route::post('/add-petugas', [ManajemenPetugasController::class, 'addPetugas'])->name('addPetugas');
             Route::get('/edit-petugas/{id}', [ManajemenPetugasController::class, 'indexEdit']);
-            Route::post('/update-petugas', [ManajemenPetugasController::class, 'updatePetugas'])->name('updatePetugas');
+            Route::post('/update-petugas/{id}', [ManajemenPetugasController::class, 'updatePetugas'])->name('updatePetugas');
+            Route::get('/delete-petugas/{id}', [ManajemenPetugasController::class, 'detelePetugas']);
         });
 
-        Route::get('/rekam-medis', [RekamMedisController::class, 'index']);
-
+        Route::prefix('rekam-medis')->group(function () {
+            Route::get('/', [RekamMedisController::class, 'index']);
+            Route::get('/delete-rekam-medis/{id}', [RekamMedisController::class, 'deleteRM']);
+        });
 });

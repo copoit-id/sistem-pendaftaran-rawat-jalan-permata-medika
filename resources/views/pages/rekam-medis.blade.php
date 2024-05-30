@@ -34,9 +34,7 @@
                                 {{ $keluhan->keluhan_pasien }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                <a href="#"
+                                <a href="/rekam-medis/delete-rekam-medis/{{ $keluhan->id_keluhan }}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Hapus</a>
                             </td>
                         </tr>
