@@ -20,19 +20,28 @@ $(document).ready(function() {
     });
 
     // get dokter
-    $('#keluhan #poli').change(function(){
-        var poli_id = 1;
-        $.ajax({
-            url: '/keluhan-pasien/get-dokter-poli', // URL untuk mengambil data dokter berdasarkan poli
-            type: 'POST',
-            data: {poli_id: poli_id, _token: '{{ csrf_token() }}'},
-            success: function(data){
-                alert("haloo")
-                // $('#daftar_dokter').empty(); // Kosongkan opsi dokter sebelum mengisi yang baru
-                // $.each(data, function(key, value){
-                //     $('#daftar_dokter').append('<option value="'+value.id_dokter+'">'+value.nama_dokter+'</option>');
-                // });
-            }
-        });
+    $('#id_dokter').on('change', function() {
+        var id_dokter = $(this).val();
+        if (id_dokter) {
+            $.ajax({
+                url: '/keluhan-pasien/get-dokter/' + id_dokter,
+                type: "get",
+                success: function(data) {
+                    $('#jadwal_dokter').empty();
+                    $('#jadwal_dokter').append('<option selected>Pilih Jadwal Tersedia</option>');
+                    $.each(data, function(key, value) {
+                        $('#jadwal_dokter').append('<option value="'+ value.hari +'">' + value.hari + ' - (' + value.jadwal_mulai + ' - ' + value.jadwal_selesai +')</option>');
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert("Gagal mengambil jadwal dokter: " + textStatus + " - " + errorThrown);
+                    console.log("Error details:", jqXHR.responseText);
+                }
+            });
+        } else {
+            $('#jadwal_dokter').empty();
+            $('#jadwal_dokter').append('<option selected>Pilih Jadwal Tersedia</option>');
+        }
     });
+
 });

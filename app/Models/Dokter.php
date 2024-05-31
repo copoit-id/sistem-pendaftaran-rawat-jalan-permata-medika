@@ -12,8 +12,14 @@ class Dokter extends Model
     protected $primaryKey = 'id_dokter';
     protected $table = 'dokter';
     public $timestamps = false;
+
     public function jadwalDokter()
     {
         return $this->hasMany(JadwalDokter::class, 'id_dokter');
     }
+    public function poli()
+    {
+        return $this->hasOne(Poli::class, 'id_poli');
+    }
+
 }

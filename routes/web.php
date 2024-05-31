@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainController::class, 'index']);
+Route::get('/cari-poli/{id_poli}', [MainController::class, 'index']);
 
 // ----- login -----
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -61,6 +62,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/add-keluhan', [KeluhanController::class, 'addKeluhan'])->name('addKeluhan');
             Route::post('/get-dokter-poli', [KeluhanController::class, 'getDokterByPoli'])->name('getDokterByPoli');
             Route::get('/check-data-pasien/{nik}', [KeluhanController::class, 'checkDataPasien'])->name('checkDataPasien');
+            Route::get('/get-dokter/{id_dokter}', [KeluhanController::class, 'getDokter']);
         });
 
         Route::prefix('rekam-medis')->group(function () {

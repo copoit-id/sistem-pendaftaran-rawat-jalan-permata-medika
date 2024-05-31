@@ -62,7 +62,7 @@
                             class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Agama</option>
                             <option value="islam">Islam</option>
-                            <option value="kristen">Kristen</option>
+                            <option value="protestan">Kristen</option>
                             <option value="katolik">Katolik</option>
                             <option value="hindu">Hindu</option>
                             <option value="budha">Budha</option>

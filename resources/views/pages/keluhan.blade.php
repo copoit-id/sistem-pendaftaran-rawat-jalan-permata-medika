@@ -32,22 +32,22 @@
                         <div class="relative flex w-full gap-4">
                             <input name="nik" type="text" id="nik"
                                 class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukan Nomor Kependudukan" required />
-                            <input name="nama_pasien" type="text" id="nama_pasien"
+                                placeholder="Masukan NIK (data otomatis muncul)" required />
+                            <input disabled name="nama_pasien" type="text" id="nama_pasien"
                                 class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Masukan Nama Pasien" required />
-                            <input name="layanan_pembayaran" type="text" id="layanan_pembayaran"
+                            <input disabled name="layanan_pembayaran" type="text" id="layanan_pembayaran"
                                 class="flex-1 block p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Masukan Layanan Pembayaran" required />
                         </div>
                         <div class="relative flex w-full gap-4 py-4">
-                            <select id="jenis_kelamin" name="jenis_kelamin"
+                            <select disabled id="jenis_kelamin" name="jenis_kelamin"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Jenis Kelamin</option>
                                 <option value="laki-laki">Laki-Laki</option>
                                 <option value="perempuan">Perempuan</option>
                             </select>
-                            <select id="agama" name="agama"
+                            <select disabled id="agama" name="agama"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Agama</option>
                                 <option value="islam">Islam</option>
@@ -57,7 +57,7 @@
                                 <option value="budha">Budha</option>
                                 <option value="konghucu">Konghucu</option>
                             </select>
-                            <select id="status_pernikahan" name="status_pernikahan"
+                            <select disabled id="status_pernikahan" name="status_pernikahan"
                                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Pilih Status Pernikahan</option>
                                 <option value="sudah menikah">Sudah Menikah</option>

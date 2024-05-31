@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\JadwalDokter;
 use App\Models\Keluhan;
 use App\Models\Pasien;
 use App\Models\Poli;
@@ -45,9 +46,8 @@ class KeluhanController extends Controller
         return redirect('/keluhan-pasien');
     }
 
-    public function getDokterByPoli(Request $request) {
-        $poli_id = $request->poli_id;
-        $dokter_by_poli = Dokter::where('id_poli', $poli_id)->get();
-        return response()->json($dokter_by_poli);
-    }
+   public function getDokter($id_dokter){
+        $jadwal_dokter = JadwalDokter::where('id_dokter', $id_dokter)->get();
+        return response()->json($jadwal_dokter);
+   }
 }

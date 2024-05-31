@@ -13,4 +13,5 @@ class Poli extends Model
     protected $table = 'poli';
     public $timestamps = false;
 
+
 }

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/build/assets/app.css">
     {{-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <title>Medika Center</title>
@@ -40,14 +39,19 @@
         <h1 class="text-[20px] font-bold">Check Jadwal Dokter</h1>
         <p>Silahkan pilih poli dan tanggal tujuan, lalu klik tombol "Cari Jadwal"</p>
         <div class="flex w-[600px] gap-4">
-            <select id="countries_disabled" name="poli"
+            <select id="poli" name="poli"
                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Pilih Poli</option>
                 @foreach ($daftar_poli as $poli)
                     <option value="{{ $poli->id_poli }}">{{ $poli->nama_poli }}</option>
                 @endforeach
             </select>
-            <button class="flex-1 bg-green-600 text-white px-4 py-2 rounded-md text-sm ">Cari</button>
+            <div class="flex-1">
+                <button type="submit" id="filter_poli"
+                    class="w-2/3 bg-green-600 text-white px-4 py-2 rounded-md text-sm ">Cari</button>
+                <button id="reset_poli" class="w-1/3 bg-blue text-white px-4 py-2 rounded-md text-sm ">Reset</button>
+            </div>
+
         </div>
 
         <table id="table-dokter"
@@ -58,25 +62,36 @@
                     <th scope="col" class="px-6 py-3">Hari</th>
                     <th scope="col" class="px-6 py-3">Jadwal Dokter</th>
                     <th scope="col" class="px-6 py-3">Nama Dokter</th>
+                    <th scope="col" class="px-6 py-3">Nama Poli</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($dokter_per_hari as $hari => $jadwals)
-                    @foreach ($jadwals as $index => $jadwal)
+                    @if (count($jadwals) > 0)
+                        @foreach ($jadwals as $index => $jadwal)
+                            <tr
+                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                @if ($index == 0)
+                                    <td class="px-6 py-4 border-r text-center w-4" rowspan="{{ count($jadwals) }}">
+                                        {{ $loop->parent->index + 1 }}
+                                    </td>
+                                    <td class="px-6 py-4 border-r text-center" rowspan="{{ count($jadwals) }}">
+                                        {{ ucfirst($jadwal['hari']) }}
+                                    </td>
+                                @endif
+                                <td class="px-6 py-4 border-r text-center">{{ $jadwal['jadwal'] }}</td>
+                                <td class="px-6 py-4 border-r">{{ $jadwal['nama_dokter'] }}</td>
+                                <td class="px-6 py-4 border-r">{{ $jadwal['nama_poli'] }}</td>
+                            </tr>
+                        @endforeach
+                    @else
                         <tr
                             class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            @if ($index == 0)
-                                <td class="px-6 py-4 border-r text-center w-4" rowspan="{{ count($jadwals) }}">
-                                    {{ $loop->parent->index + 1 }}
-                                </td>
-                                <td class="px-6 py-4 border-r text-center" rowspan="{{ count($jadwals) }}">
-                                    {{ $jadwal['hari'] }}
-                                </td>
-                            @endif
-                            <td class="px-6 py-4 border-r">{{ $jadwal['jadwal'] }}</td>
-                            <td class="px-6 py-4">{{ $jadwal['nama_dokter'] }}</td>
+                            <td class="px-6 py-4 border-r text-center w-4">{{ $loop->index + 1 }}</td>
+                            <td class="px-6 py-4 border-r text-center">{{ ucfirst($hari) }}</td>
+                            <td class="px-6 py-4 border-r text-center" colspan="3">Tidak ada jadwal</td>
                         </tr>
-                    @endforeach
+                    @endif
                 @empty
                     <tr>
                         <td colspan="4" class="px-6 py-4 text-center">Data kosong</td>
@@ -84,6 +99,7 @@
                 @endforelse
             </tbody>
         </table>
+
     </section>
     <footer class="bg-blue py-[50px] px-[120px] text-white flex justify-between">
         <div>
@@ -114,7 +130,20 @@
         </div>
     </footer>
 
-    <script src="/build/assets/app.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#filter_poli').on('click', function() {
+                var selectedPoli = $('#poli').val();
+                var url = selectedPoli ? '/cari-poli/' + selectedPoli : '/';
+                window.location.href = url;
+            });
+
+            $('#reset_poli').on('click', function() {
+                window.location.href = '/';
+            });
+        });
+    </script>
+    {{-- <script src="/build/assets/app.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
