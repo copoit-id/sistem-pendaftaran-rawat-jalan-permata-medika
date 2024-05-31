@@ -12,36 +12,24 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PendaftaranPasienController;
 use App\Http\Controllers\RekamMedisController;
 use App\Http\Middleware\CheckPetugasAuthenticated;
+use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 
-// login
+
+Route::get('/', [MainController::class, 'index']);
+
+// ----- login -----
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/authenticate', [LoginController::class, 'authenticate']);
 
-Route::get('/', [MainController::class, 'index']);
+// ----- middleware auth login session -----
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index']);
 
-Route::middleware(CheckPetugasAuthenticated::class)->group(function () {
-
-        Route::get('/dashboard', [DashboardController::class, 'index']);
-        Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index']);
-
-        Route::get('/view-pdf', [PDFController::class, 'index']);
-        Route::get('/download-pdf', [PDFController::class, 'generatePDF']);
-
-        Route::prefix('keluhan-pasien')->group(function () {
-            Route::get('/', [KeluhanController::class, 'index']);
-            Route::get('/cetak-antrian', [KeluhanController::class, 'indexCetakAntrian']);
-            Route::post('/add-keluhan', [KeluhanController::class, 'addKeluhan'])->name('addKeluhan');
-            Route::post('/get-dokter-poli', [KeluhanController::class, 'getDokterByPoli'])->name('getDokterByPoli');
-            Route::get('/check-data-pasien/{nik}', [KeluhanController::class, 'checkDataPasien'])->name('checkDataPasien');
-        });
-
-        Route::prefix('pendaftaran-pasien')->group(function () {
-            Route::get('/', [PendaftaranPasienController::class, 'index']);
-            Route::post('/add-pasien', [PendaftaranPasienController::class, 'addPasien'])->name('addPasien');
-        });
-
+    // ----- middleware untuk role admin -----
+    Route::middleware('checkrole:admin')->group(function () {
         Route::prefix('manajemen-dokter')->group(function () {
             Route::get('/', [ManajemenDokterController::class, 'index']);
             Route::get('/input-dokter', [ManajemenDokterController::class, 'indexInput']);
@@ -58,9 +46,29 @@ Route::middleware(CheckPetugasAuthenticated::class)->group(function () {
             Route::post('/update-petugas/{id}', [ManajemenPetugasController::class, 'updatePetugas'])->name('updatePetugas');
             Route::get('/delete-petugas/{id}', [ManajemenPetugasController::class, 'detelePetugas']);
         });
+    });
+
+    // ----- middlewareuntuk role admin -----
+    Route::middleware('checkrole:petugas')->group(function () {
+        Route::prefix('pendaftaran-pasien')->group(function () {
+            Route::get('/', [PendaftaranPasienController::class, 'index']);
+            Route::post('/add-pasien', [PendaftaranPasienController::class, 'addPasien'])->name('addPasien');
+        });
+
+        Route::prefix('keluhan-pasien')->group(function () {
+            Route::get('/', [KeluhanController::class, 'index']);
+            Route::get('/cetak-antrian', [KeluhanController::class, 'indexCetakAntrian']);
+            Route::post('/add-keluhan', [KeluhanController::class, 'addKeluhan'])->name('addKeluhan');
+            Route::post('/get-dokter-poli', [KeluhanController::class, 'getDokterByPoli'])->name('getDokterByPoli');
+            Route::get('/check-data-pasien/{nik}', [KeluhanController::class, 'checkDataPasien'])->name('checkDataPasien');
+        });
 
         Route::prefix('rekam-medis')->group(function () {
             Route::get('/', [RekamMedisController::class, 'index']);
             Route::get('/delete-rekam-medis/{id}', [RekamMedisController::class, 'deleteRM']);
         });
+
+        Route::get('/view-pdf', [PDFController::class, 'index']);
+        Route::get('/download-pdf', [PDFController::class, 'generatePDF']);
+    });
 });

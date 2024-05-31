@@ -6,13 +6,14 @@ use App\Models\Dokter;
 use App\Models\Keluhan;
 use App\Models\Pasien;
 use App\Models\Petugas;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index(){
         $jumlah_dokter = Dokter::count();
-        $jumlah_karyawan = Petugas::count();
+        $jumlah_karyawan = User::count();
         $jumlah_pasien = Pasien::count();
         $jumlah_rekam_medis = Keluhan::count();
 

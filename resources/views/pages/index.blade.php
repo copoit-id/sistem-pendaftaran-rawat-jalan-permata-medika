@@ -33,7 +33,7 @@
                 <p class="font-semibold">0812-3456-7890</p>
             </div>
             </div>
-            <p class="px-[70px] py-2 bg-slate-200 text-black rounded-full">Login</p>
+            <a href="/login" class="px-[70px] py-2 bg-slate-200 text-black rounded-full">Login</a>
         </nav>
     </header>
     <section class="flex flex-col items-center justify-center py-[150px] gap-4">

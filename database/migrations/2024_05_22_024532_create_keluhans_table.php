@@ -20,7 +20,7 @@ return new class extends Migration
             $table->BigInteger('id_petugas')->unsigned();
             $table->foreign('id_dokter')->references('id_dokter')->on('dokter');
             $table->foreign('id_pasien')->references('id_pasien')->on('pasien');
-            $table->foreign('id_petugas')->references('id_petugas')->on('petugas');
+            $table->foreign('id_petugas')->references('id')->on('users');
         });
     }
 

@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('petugas', function (Blueprint $table) {
-            $table->id('id_petugas');
-            $table->string('nama_petugas');
-            $table->string('nomor_telepon');
-            $table->enum('jenis_kelamin',['laki-laki', 'perempuan']);
-            $table->string('alamat_lengkap');
-            $table->string('email')->unique();
-            $table->text('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        // Schema::create('petugas', function (Blueprint $table) {
+        //     $table->id('id_petugas');
+        //     $table->string('nama_petugas');
+        //     $table->string('nomor_telepon');
+        //     $table->enum('jenis_kelamin',['laki-laki', 'perempuan']);
+        //     $table->string('alamat_lengkap');
+        //     $table->string('email')->unique();
+        //     $table->text('password');
+        //     $table->enum('role', ['admin', 'petugas'])->default('petugas');
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
     }
 
     /**

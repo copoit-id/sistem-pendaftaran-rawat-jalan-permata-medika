@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckPetugasAuthenticated
@@ -15,7 +16,7 @@ class CheckPetugasAuthenticated
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->session()->has('logged_in_petugas')) {
+        if (!Auth::guard('petugas')->check()) {
             return redirect('/login');
         }
         return $next($request);

@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 @section('content')
     <section class="content">
-        <h1 class="text-[20px] font-semibold text-slate-800">Halo, Admin!</h1>
+        <h1 class="text-[20px] font-semibold text-slate-800 ">Halo, {{ Auth::user()->role }}!</h1>
         <p class="text-[16px] font-thin">Selamat datang admin, tetap semangat dan selalu bersyukur :)</p>
         <div class="flex items-center justify-between py-6 gap-4">
             <div class="flex-1 px-10 py-6 bg-blue text-white">

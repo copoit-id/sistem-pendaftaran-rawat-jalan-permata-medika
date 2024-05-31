@@ -19,23 +19,22 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-
-        $petugas = Petugas::where('email', $credentials['email'])->first();
-
-        if ($petugas && Hash::check($credentials['password'], $petugas->password)) {
-            $request->session()->put('logged_in_petugas', $petugas->id_petugas);
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect('/dashboard');
-        } else {
+        }else{
             return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
+                'email' => 'Isi data dengan benar',
             ]);
         }
     }
+    // }
 
     public function logout(Request $request){
-        $request->session()->forget('logged_in_petugas');
+        Auth::logout();
+
         $request->session()->invalidate();
+
         $request->session()->regenerateToken();
 
         return redirect('/login');
