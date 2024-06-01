@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Dokter;
 use App\Models\JadwalDokter;
 use App\Models\Keluhan;
+use App\Models\NomorAntrian;
 use App\Models\Pasien;
 use App\Models\Poli;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class KeluhanController extends Controller
@@ -21,7 +23,11 @@ class KeluhanController extends Controller
     }
 
     public function indexCetakAntrian(){
-        return view('pages.cetak-antrian');
+        $nomor_antrian = NomorAntrian::count();
+
+        return view('pages.cetak-antrian', [
+            'nomor_antrian' => $nomor_antrian + 1
+        ]);
     }
 
     public function checkDataPasien($nik){
@@ -43,7 +49,19 @@ class KeluhanController extends Controller
             'id_petugas' => 1,
         ]);
 
-        return redirect('/keluhan-pasien');
+        return redirect('/keluhan-pasien/cetak-antrian');
+    }
+
+    public function addAntrian(Request $request){
+        $antrian = NomorAntrian::create([
+            'nomor_antrian' => $request->nomor_antrian
+        ]);
+        return redirect('/download-pdf');
+    }
+
+    public function resetAntrian(){
+        NomorAntrian::truncate();
+        return redirect('/keluhan-pasien/cetak-antrian');
     }
 
    public function getDokter($id_dokter){

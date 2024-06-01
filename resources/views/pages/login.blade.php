@@ -18,7 +18,15 @@
 
 <body class="w-full h-[100dvh]">
     <section id="login" class="flex">
-        <div class="w-1/2 h-[100vh] bg-blue rounded-r-[50px] hidden lg:flex"></div>
+        <div
+            class="w-1/2 h-[100vh] bg-blue rounded-r-[50px] hidden lg:flex flex-col gap-12 justify-center items-center">
+            <img src="/img/logo-login.png" alt="" class="w-[450px] h-[450px]">
+            <p class="w-[450px] text-white text-center font-thin text-[18px]">Aplikasi Medika Center merupakan aplikasi
+                pendaftaftaran pasien
+                yang sangat memudahkan
+                dalam melakukan
+                pendataan rekam medis</p>
+        </div>
         <div class="w-1/2 h-[100vh] py-[50px] flex justify-center items-center">
             <div class="w-full flex justify-center flex-col items-center">
                 <h1 class="text-center font-bold text-[28px] text-navy">LOGIN PAGE</h1>

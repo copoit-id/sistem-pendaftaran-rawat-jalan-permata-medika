@@ -59,6 +59,9 @@ Route::middleware('auth')->group(function () {
         Route::prefix('keluhan-pasien')->group(function () {
             Route::get('/', [KeluhanController::class, 'index']);
             Route::get('/cetak-antrian', [KeluhanController::class, 'indexCetakAntrian']);
+            Route::get('/cetak-antrian/view', [PDFController::class, 'index']);
+            Route::post('/cetak-antrian/add-antrian', [KeluhanController::class, 'addAntrian'])->name('addAntrian');
+            Route::get('/cetak-antrian/reset-antrian', [KeluhanController::class, 'resetAntrian'])->name('resetAntrian');
             Route::post('/add-keluhan', [KeluhanController::class, 'addKeluhan'])->name('addKeluhan');
             Route::post('/get-dokter-poli', [KeluhanController::class, 'getDokterByPoli'])->name('getDokterByPoli');
             Route::get('/check-data-pasien/{nik}', [KeluhanController::class, 'checkDataPasien'])->name('checkDataPasien');

@@ -12,13 +12,44 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <title>Medika Center</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 185mm;
+            height: 272mm;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container p {
+            position: absolute;
+            font-size: 150px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
-    <section class="flex relative w-full h-[100dvh] justify-center items-center">
-        <img src="{{ $pic }}" alt="" class="w-[1000px]">
-        <p class="absolute font-bold" style="font-size: 150px">03</p>
-    </section>
+    <div class="container">
+        <img src="{{ $pic }}" alt="">
+        <p>{{ $nomor_antrian }}</p>
+    </div>
 </body>
 
 </html>
