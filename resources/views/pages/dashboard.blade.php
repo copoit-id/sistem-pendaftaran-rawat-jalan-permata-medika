@@ -3,7 +3,6 @@
 @section('title', 'Dashboard')
 @section('content')
     <section class="content">
-        <button id="btn-search" class="bg-blue px-4 py-2">woi</button>
         <h1 class="text-[20px] font-semibold text-slate-800 ">Halo, {{ Auth::user()->role }}!</h1>
         <p class="text-[16px] font-thin">Selamat datang admin, tetap semangat dan selalu bersyukur :)</p>
         <div class="flex items-center justify-between py-6 gap-4">
