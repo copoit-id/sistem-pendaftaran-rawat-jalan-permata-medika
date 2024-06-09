@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <link rel="stylesheet" href="/build/assets/app.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- <link rel="stylesheet" href="/build/assets/app.css"> --}}
     {{-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
 
 <body>
     <header class="w-full">
-        <nav class="flex w-full justify-between items-center bg-blue px-[100px] py-[20px] text-white">
+        <nav class="flex w-full justify-between items-center bg-blue px-[100px] py-[20px] text-white fixed">
             <img src="/img/logo.png" alt="" class="w-[190px]">
             <div class="max-w-[400px]">
                 <p class="font-thin">Alamat</p>
@@ -46,7 +46,7 @@
                     <option value="{{ $poli->id_poli }}">{{ $poli->nama_poli }}</option>
                 @endforeach
             </select>
-            <div class="flex-1">
+            <div class="flex gap-3 flex-1">
                 <button type="submit" id="filter_poli"
                     class="w-2/3 bg-green-600 text-white px-4 py-2 rounded-md text-sm ">Cari</button>
                 <button id="reset_poli" class="w-1/3 bg-blue text-white px-4 py-2 rounded-md text-sm ">Reset</button>
