@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- <link rel="stylesheet" href="/build/assets/app.css"> --}}
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="/build/assets/app.css">
     {{-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
@@ -15,7 +15,7 @@
 
 </head>
 @php
-    $title = 'Medika Indah';
+$title = 'Medika Indah';
 @endphp
 
 <body>
@@ -43,7 +43,7 @@
                 class="flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Pilih Poli</option>
                 @foreach ($daftar_poli as $poli)
-                    <option value="{{ $poli->id_poli }}">{{ $poli->nama_poli }}</option>
+                <option value="{{ $poli->id_poli }}">{{ $poli->nama_poli }}</option>
                 @endforeach
             </select>
             <div class="flex gap-3 flex-1">
@@ -67,35 +67,35 @@
             </thead>
             <tbody>
                 @forelse ($dokter_per_hari as $hari => $jadwals)
-                    @if (count($jadwals) > 0)
-                        @foreach ($jadwals as $index => $jadwal)
-                            <tr
-                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                @if ($index == 0)
-                                    <td class="px-6 py-4 border-r text-center w-4" rowspan="{{ count($jadwals) }}">
-                                        {{ $loop->parent->index + 1 }}
-                                    </td>
-                                    <td class="px-6 py-4 border-r text-center" rowspan="{{ count($jadwals) }}">
-                                        {{ ucfirst($jadwal['hari']) }}
-                                    </td>
-                                @endif
-                                <td class="px-6 py-4 border-r text-center">{{ $jadwal['jadwal'] }}</td>
-                                <td class="px-6 py-4 border-r">{{ $jadwal['nama_dokter'] }}</td>
-                                <td class="px-6 py-4 border-r">{{ $jadwal['nama_poli'] }}</td>
-                            </tr>
-                        @endforeach
-                    @else
-                        <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <td class="px-6 py-4 border-r text-center w-4">{{ $loop->index + 1 }}</td>
-                            <td class="px-6 py-4 border-r text-center">{{ ucfirst($hari) }}</td>
-                            <td class="px-6 py-4 border-r text-center" colspan="3">Tidak ada jadwal</td>
-                        </tr>
+                @if (count($jadwals) > 0)
+                @foreach ($jadwals as $index => $jadwal)
+                <tr
+                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    @if ($index == 0)
+                    <td class="px-6 py-4 border-r text-center w-4" rowspan="{{ count($jadwals) }}">
+                        {{ $loop->parent->index + 1 }}
+                    </td>
+                    <td class="px-6 py-4 border-r text-center" rowspan="{{ count($jadwals) }}">
+                        {{ ucfirst($jadwal['hari']) }}
+                    </td>
                     @endif
+                    <td class="px-6 py-4 border-r text-center">{{ $jadwal['jadwal'] }}</td>
+                    <td class="px-6 py-4 border-r">{{ $jadwal['nama_dokter'] }}</td>
+                    <td class="px-6 py-4 border-r">{{ $jadwal['nama_poli'] }}</td>
+                </tr>
+                @endforeach
+                @else
+                <tr
+                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <td class="px-6 py-4 border-r text-center w-4">{{ $loop->index + 1 }}</td>
+                    <td class="px-6 py-4 border-r text-center">{{ ucfirst($hari) }}</td>
+                    <td class="px-6 py-4 border-r text-center" colspan="3">Tidak ada jadwal</td>
+                </tr>
+                @endif
                 @empty
-                    <tr>
-                        <td colspan="4" class="px-6 py-4 text-center">Data kosong</td>
-                    </tr>
+                <tr>
+                    <td colspan="4" class="px-6 py-4 text-center">Data kosong</td>
+                </tr>
                 @endforelse
             </tbody>
         </table>
