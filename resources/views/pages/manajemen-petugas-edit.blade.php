@@ -36,8 +36,7 @@
     <div class="bg-white w-full mt-4 shadow-sm rounded-md px-4 py-8">
         <p class="text-center font-bold text-[20px] mb-4">Form Edit Karyawan</p>
         <div>
-            <form action="{{ url('manajemen-petugas/update-petugas/' . $petugas->id_petugas) }}" method="post"
-                class="mx-auto">
+            <form action="{{ url('manajemen-petugas/update-petugas/' . $petugas->id) }}" method="post" class="mx-auto">
                 @csrf
                 <label for="default-search"
                     class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>

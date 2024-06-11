@@ -36,9 +36,28 @@ class ManajemenDokterController extends Controller
     public function indexEdit($id){
         $dokter = Dokter::with('jadwalDokter')->where('id_dokter', $id)->first();
         $daftar_poli = Poli::all();
-        return view('pages.manajemen-dokter-edit',[
+
+        $jadwal = [
+            'senin' => ['checked' => false, 'mulai' => '', 'selesai' => ''],
+            'selasa' => ['checked' => false, 'mulai' => '', 'selesai' => ''],
+            'rabu' => ['checked' => false, 'mulai' => '', 'selesai' => ''],
+            'kamis' => ['checked' => false, 'mulai' => '', 'selesai' => ''],
+            'jumat' => ['checked' => false, 'mulai' => '', 'selesai' => ''],
+            'sabtu' => ['checked' => false, 'mulai' => '', 'selesai' => ''],
+            'minggu' => ['checked' => false, 'mulai' => '', 'selesai' => ''],
+        ];
+
+        foreach ($dokter->jadwalDokter as $j) {
+            $hari = strtolower($j->hari);
+            $jadwal[$hari]['checked'] = true;
+            $jadwal[$hari]['mulai'] = $j->jadwal_mulai;
+            $jadwal[$hari]['selesai'] = $j->jadwal_selesai;
+        }
+
+        return view('pages.manajemen-dokter-edit', [
             'dokter' => $dokter,
-            'daftar_poli' => $daftar_poli
+            'daftar_poli' => $daftar_poli,
+            'jadwal' => $jadwal,
         ]);
     }
 
@@ -128,5 +147,33 @@ class ManajemenDokterController extends Controller
 
             return redirect('/manajemen-dokter');
         }
+    }
+
+    public function updateDokter(Request $request, $id){
+        $dokter = Dokter::with('jadwalDokter')->where('id_dokter', $id)->first();
+        $dokter->update([
+            'nama_dokter' => $request->nama_dokter,
+            'nomor_telepon' => $request->nomor_telepon,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat_lengkap' => $request->alamat_lengkap,
+            'id_poli' => $request->poli,
+        ]);
+
+        JadwalDokter::where('id_dokter', $id)->delete();
+
+        $days = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+
+        foreach ($days as $day) {
+            if ($request->has('hari_' . $day)) {
+                JadwalDokter::create([
+                    'id_dokter' => $dokter->id_dokter,
+                    'hari' => ucfirst($day),
+                    'jadwal_mulai' => $request->input('jadwal_mulai_' . $day),
+                    'jadwal_selesai' => $request->input('jadwal_selesai_' . $day),
+                ]);
+            }
+        }
+
+        return redirect('/manajemen-dokter');
     }
 }

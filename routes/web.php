@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [ManajemenDokterController::class, 'index']);
             Route::get('/input-dokter', [ManajemenDokterController::class, 'indexInput']);
             Route::get('/edit-dokter/{id}', [ManajemenDokterController::class, 'indexEdit']);
+            Route::post('/update-dokter/{id}', [ManajemenDokterController::class, 'updateDokter']);
             Route::get('/delete-dokter/{id}', [ManajemenDokterController::class, 'deleteDokter']);
             Route::post('/add-dokter', [ManajemenDokterController::class, 'addDokter'])->name('addDokter');
         });
