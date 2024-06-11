@@ -30,7 +30,7 @@ class ManajemenPetugasController extends Controller
     public function addPetugas(Request $request){
         // dd($request->all());
         User::create([
-            'nama' => $request->nama_petugas,
+            'nama' => $request->nama,
             'nomor_telepon' => $request->nomor_telepon,
             'jenis_kelamin' => $request->jenis_kelamin,
             'alamat_lengkap' => $request->alamat_lengkap,
